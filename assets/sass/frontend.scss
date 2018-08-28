@@ -1,0 +1,99 @@
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	>.content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+.lib-calendar-header-block {
+	background: black;
+	padding: 15px;
+	p {
+		color: white;
+		margin-bottom: 0;
+		&.dates {
+			font-family: AN-Heavy;
+			font-size: 1.6rem !important;
+		}
+	}
+}
+
+.week,
+.calendarHeaderMonth,
+.calendarHeaderDays {
+	display: flex;
+	max-width: 800px;
+}
+
+.calendarHeaderDays {
+	.dayOfWeek {
+		flex: 1 0 0;
+		height: 20px;
+		text-align: center;
+	}
+}
+
+.calendarHeaderMonth {
+	.prev {
+		float: left;
+		display: block;
+		font-size: 24px;
+	}
+	.currentMonth {
+		flex: 1 0 0;
+		font-size: 1rem;
+		padding: 20px;
+		text-align: center;
+	}
+	.next {
+		float: right;
+		display: block;
+		font-size: 24px;
+	}
+}
+.month {
+	max-width: 100%;
+	.day {
+		@include aspect-ratio(10, 7);
+		width: calc(100%);
+		font-size: 1rem;
+		color: #000000;
+		flex-grow: 1;
+		flex-shrink: 0;
+		flex-basis: 0px;
+		background-color: none;
+		&.otherMonth {
+			background-color: none;
+			color: rgba(0, 0, 0, .5);
+		}
+		&.startDay,
+		&.betweenDay,
+		&.endDay {
+			background-color: #e3188e;
+			color: white;
+		}
+		&.startDay {
+			border-radius: 12px 0 0 12px;
+		}
+		&.endDay {
+			border-radius: 0 12px 12px 0;
+		}
+		span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+

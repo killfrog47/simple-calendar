@@ -1,0 +1,74 @@
+.lib-calendar-header-block {
+  background: black;
+  padding: 15px; }
+  .lib-calendar-header-block p {
+    color: white;
+    margin-bottom: 0; }
+    .lib-calendar-header-block p.dates {
+      font-family: AN-Heavy;
+      font-size: 1.6rem !important; }
+
+.week,
+.calendarHeaderMonth,
+.calendarHeaderDays {
+  display: flex;
+  max-width: 800px; }
+
+.calendarHeaderDays .dayOfWeek {
+  flex: 1 0 0;
+  height: 20px;
+  text-align: center; }
+
+.calendarHeaderMonth .prev {
+  float: left;
+  display: block;
+  font-size: 24px; }
+
+.calendarHeaderMonth .currentMonth {
+  flex: 1 0 0;
+  font-size: 1rem;
+  padding: 20px;
+  text-align: center; }
+
+.calendarHeaderMonth .next {
+  float: right;
+  display: block;
+  font-size: 24px; }
+
+.month {
+  max-width: 100%; }
+  .month .day {
+    position: relative;
+    width: calc(100%);
+    font-size: 1rem;
+    color: #000000;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0px;
+    background-color: none; }
+    .month .day:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 70%; }
+    .month .day > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    .month .day.otherMonth {
+      background-color: none;
+      color: rgba(0, 0, 0, 0.5); }
+    .month .day.startDay, .month .day.betweenDay, .month .day.endDay {
+      background-color: #e3188e;
+      color: white; }
+    .month .day.startDay {
+      border-radius: 12px 0 0 12px; }
+    .month .day.endDay {
+      border-radius: 0 12px 12px 0; }
+    .month .day span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
